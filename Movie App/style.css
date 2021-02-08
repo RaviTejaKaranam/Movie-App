@@ -209,4 +209,8 @@ header .search::placeholder {
   header{
     justify-content: center;
   }
+  .bad-search{
+    font-size: 1.2rem;
+    top:85%;
+  }
 }
