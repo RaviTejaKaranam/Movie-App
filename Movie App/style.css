@@ -10,6 +10,7 @@ body {
   background-color: #22254b;
   font-family: "Poppins", sans-serif;
   margin: 0;
+  position: relative;
 }
 header {
   display: flex;
@@ -34,10 +35,12 @@ header .search::placeholder {
   color: #7378c5;
   font-weight: bold;
 }
+
 .movies {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 .movie {
   width: 300px;
@@ -121,6 +124,10 @@ header .search::placeholder {
 .pagination{
   display: flex;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  bottom: -70px;
+  transform: translate(-50%);
 }
 .btn{
   position: relative;
@@ -138,6 +145,7 @@ header .search::placeholder {
   margin: 15px;
   border-radius: 3px;
 }
+
 .btn:hover{
   opacity: 0.8;
 }
@@ -146,6 +154,7 @@ header .search::placeholder {
   outline: 0;
 }
 
+/* Handling bad request  */
 .bad-search{
   text-align: center;
   color: #fff;
@@ -158,7 +167,6 @@ header .search::placeholder {
   font-weight: bold;
   transform: translate(-50%,-50%);
 }
-
 
 /* Media Queries  */
 @media(max-width:1345px){
