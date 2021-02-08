@@ -146,6 +146,19 @@ header .search::placeholder {
   outline: 0;
 }
 
+.bad-search{
+  text-align: center;
+  color: #fff;
+  font-size: 3rem;
+  max-width: 100%;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-weight: bold;
+  transform: translate(-50%,-50%);
+}
+
 
 /* Media Queries  */
 @media(max-width:1345px){
