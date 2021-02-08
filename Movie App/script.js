@@ -9,7 +9,6 @@ const SEARCH_URL =
 
   // tmdb has 500 pages 
 let currentPage = 1;
-let movies;
 // async function to get movies 
 function getMovies(url) {
   let res = fetch(url);
@@ -27,6 +26,7 @@ const section = document.querySelector("section");
 // Rendering Movies - DOM
 function showMovies(movies) {
   section.innerHTML = "";
+  console.log(movies);
   if(movies.length === 0){
     const badSearch = document.createElement("div")
     badSearch.classList.add("bad-search")
@@ -90,8 +90,6 @@ form.addEventListener("submit", (e) => {
 
 const pagination = document.querySelector(".pagination");
 function eventListeners() {
-  if(movies.length === 0){}
-else{
   pagination.innerHTML = "";
   const prevButton = document.createElement("button");
   prevButton.innerHTML = "Prev";
@@ -121,18 +119,17 @@ else{
     getMovies(API_URL + "&page=" + currentPage);
     window.scrollTo({top:0, behavior:'smooth'});
   });
-}
   const movieInfo = document.querySelectorAll(".movie-info");
   const movieImage = document.querySelectorAll(".movie img");
   const overview = document.querySelectorAll(".overview");
   const closeIcons = document.querySelectorAll(".overview i");
   // Displaying Overview 
   movieImage.forEach((movie, idx) => {
+    console.log("clicked");
     movie.addEventListener("click", () => {
       closeAllOverViews();
       overview[idx].classList.add("show");
     });
-
   });
 
   movieInfo.forEach((movie, idx) => {
