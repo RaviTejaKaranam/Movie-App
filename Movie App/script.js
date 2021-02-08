@@ -26,7 +26,6 @@ const section = document.querySelector("section");
 // Rendering Movies - DOM
 function showMovies(movies) {
   section.innerHTML = "";
-  console.log(movies);
   movies.forEach((movie) => {
     const movieTitle = movie.title;
     const poster_path = movie.poster_path;
@@ -116,7 +115,6 @@ function eventListeners() {
   const closeIcons = document.querySelectorAll(".overview i");
   // Displaying Overview 
   movieImage.forEach((movie, idx) => {
-    console.log("clicked");
     movie.addEventListener("click", () => {
       closeAllOverViews();
       overview[idx].classList.add("show");
