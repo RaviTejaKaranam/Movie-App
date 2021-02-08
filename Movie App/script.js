@@ -9,6 +9,7 @@ const SEARCH_URL =
 
   // tmdb has 500 pages 
 let currentPage = 1;
+let movies;
 // async function to get movies 
 function getMovies(url) {
   let res = fetch(url);
@@ -26,6 +27,12 @@ const section = document.querySelector("section");
 // Rendering Movies - DOM
 function showMovies(movies) {
   section.innerHTML = "";
+  if(movies.length === 0){
+    const badSearch = document.createElement("div")
+    badSearch.classList.add("bad-search")
+    badSearch.innerHTML = "No movies found ☹"
+    section.appendChild(badSearch)
+  }
   movies.forEach((movie) => {
     const movieTitle = movie.title;
     const poster_path = movie.poster_path;
@@ -48,7 +55,10 @@ function showMovies(movies) {
     ${overview}
   </div>`;
 
+  
+
     section.appendChild(movieEl);
+    
   });
   eventListeners();
 }
@@ -80,6 +90,8 @@ form.addEventListener("submit", (e) => {
 
 const pagination = document.querySelector(".pagination");
 function eventListeners() {
+  if(movies.length === 0){}
+else{
   pagination.innerHTML = "";
   const prevButton = document.createElement("button");
   prevButton.innerHTML = "Prev";
@@ -109,6 +121,7 @@ function eventListeners() {
     getMovies(API_URL + "&page=" + currentPage);
     window.scrollTo({top:0, behavior:'smooth'});
   });
+}
   const movieInfo = document.querySelectorAll(".movie-info");
   const movieImage = document.querySelectorAll(".movie img");
   const overview = document.querySelectorAll(".overview");
@@ -119,6 +132,7 @@ function eventListeners() {
       closeAllOverViews();
       overview[idx].classList.add("show");
     });
+
   });
 
   movieInfo.forEach((movie, idx) => {
